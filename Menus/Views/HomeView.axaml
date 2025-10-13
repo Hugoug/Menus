@@ -13,7 +13,7 @@
     
     <Grid Background="Green">
         <StackPanel>
-            <Button Content="VOLVER"/> 
+            <Button Content="VOLVER" Command="{Binding NavigateShopCommand}"/> 
         </StackPanel>
     </Grid>
 </UserControl>

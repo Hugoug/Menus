@@ -3,11 +3,11 @@ using Menus.Services;
 
 namespace Menus.ViewModels;
 
-public partial class ShopViewModel:ViewModelBase
+public partial class CarritoViewModel:ViewModelBase
 {
     private NavigationService _navigationService;
     
-    public ShopViewModel(NavigationService navigationService)
+    public CarritoViewModel(NavigationService navigationService)
     {
         _navigationService = navigationService;
     }
@@ -19,8 +19,8 @@ public partial class ShopViewModel:ViewModelBase
     }
     
     [RelayCommand]
-    public void NavigateCarrito()
+    public void NavigateTienda()
     {
-        _navigationService.NavigateTo("carrito");
+        _navigationService.NavigateTo("tienda");
     }
 }

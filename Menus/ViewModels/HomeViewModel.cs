@@ -13,8 +13,14 @@ public partial class HomeViewModel:ViewModelBase
     }
 
     [RelayCommand]
-    public void NavigateShop()
+    public void NavigateTienda()
     {
-        _navigationService.NavigateTo("Shop");
+        _navigationService.NavigateTo("tienda");
+    }
+    
+    [RelayCommand]
+    public void NavigateCarrito()
+    {
+        _navigationService.NavigateTo("carrito");
     }
 }

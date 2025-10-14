@@ -13,7 +13,11 @@
     
     <Grid Background="Green">
         <StackPanel>
-            <Button Content="VOLVER" Command="{Binding NavigateShopCommand}"/> 
+            <Button Content="IR A TIENDA" 
+                    Command="{Binding NavigateTiendaCommand}"/> 
+            
+            <Button Content="IR A CARRITO" 
+                    Command="{Binding NavigateCarritoCommand}"/> 
         </StackPanel>
     </Grid>
 </UserControl>

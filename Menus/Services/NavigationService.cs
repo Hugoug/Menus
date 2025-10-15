@@ -45,7 +45,7 @@ public partial class NavigationService:ObservableObject
         {
             Content = "Carrito",
             Tag="carrito",
-            IconSource = new SymbolIconSource{Symbol = Symbol.Shop}
+            IconSource = new SymbolIconSource{Symbol = Symbol.WebCam}
         };
         
         // Añadimos los items a la lista

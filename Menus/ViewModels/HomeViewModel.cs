@@ -12,6 +12,11 @@ public partial class HomeViewModel:ViewModelBase
         _navigationService = navigationService;
     }
 
+    public HomeViewModel()
+    {
+        
+    }
+
     [RelayCommand]
     public void NavigateTienda()
     {

@@ -21,5 +21,6 @@
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm"/>
         <PackageReference Include="FluentAvaloniaUI" />
+        <PackageReference Include="Material.Avalonia" />
     </ItemGroup>
 </Project>

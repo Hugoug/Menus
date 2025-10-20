@@ -4,6 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:p1="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:vm="clr-namespace:Menus.ViewModels"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
              Width="1280" Height="720" 
              x:Class="Menus.Views.HomeView"
@@ -24,6 +27,37 @@
             <ColumnDefinition Width="300"/> <!--COLUMNA PARA BOTONES-->
         </Grid.ColumnDefinitions>
         
+        <dialogHostAvalonia:DialogHost ZIndex="1" 
+            IsOpen="True"
+            Background="Transparent" Grid.RowSpan="3"
+            Height="580" Margin="20">
+                
+            <dialogHostAvalonia:DialogHost.DialogContent>
+                <Grid RowDefinitions="*,*,*" Width="320">
+                    <Grid.Background>
+                        Black
+                    </Grid.Background>
+                    <StackPanel HorizontalAlignment="Center" 
+                                Width="320"
+                                Orientation="Horizontal"
+                                Margin="10">
+                        
+                        <TextBlock Text="Ateción" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   FontSize="16"/>
+                    </StackPanel>
+                    
+                    <StackPanel >
+                        
+                    </StackPanel>
+                </Grid>
+                    
+            </dialogHostAvalonia:DialogHost.DialogContent>
+        </dialogHostAvalonia:DialogHost>
+        
+        
         <!--COLUMNA 0 (IMAGEN)-->
         <StackPanel Grid.Column="0">
             <Image Width="100" 
@@ -43,25 +77,78 @@
                        FontSize="18"/>
             <!---Datos de login-->
             <Border BorderBrush="#3B82F6"
-                    Width="200"
-                    CornerRadius="20">
-                <StackPanel >
+                    Background="HotPink"
+                    Width="400" Height="200"
+                    CornerRadius="10">
+                <StackPanel  Width="300">
                     <TextBlock Text="Correo electrónicio"
                                Margin="0,10,0,10"/>
                     <TextBox UseFloatingWatermark="True" Classes="outline" 
                              Theme="{StaticResource OutlineTextBox}" 
                              p1:TextFieldAssist.Label="Correo electrónico *" 
                              Watermark="Ej: dam@gmail.com"
-                             p1:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
-                             Text="{Binding }"/>
+                             p1:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"/>
+                    
+                    <Button Content="CONTINÚA" HorizontalAlignment="Left"
+                            Margin="0,20,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>
         
-        <!--COLUMNA 2 (BOTONES)-->
-        <Grid Grid.Column="2">
+        
+        <!--COLUMNA 2 (BOTONES Y DIALOGO)-->
+        <Grid Grid.Column="2" RowDefinitions="100,*,200">
+            <dialogHostAvalonia:DialogHost 
+                IsOpen="{Binding Dialogo}"
+                Background="Transparent" Grid.RowSpan="3"
+                Height="580" Margin="20">
+                
+                <dialogHostAvalonia:DialogHost.DialogContent>
+                    <StackPanel Background="Transparent">
+                        <TextBlock Text="AYUDA"
+                                   Foreground="White"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"/>
+                        
+                        <avalonia:MaterialIcon Kind="Account" 
+                                               Width="25" Height="25"/>
+                        
+                        <avalonia:MaterialIcon Kind="AccountAdd" 
+                                               Width="25" Height="25"/>
+                        
+                        <avalonia:MaterialIcon Kind="Subscriptions" 
+                                               Width="25" Height="25"/>
+                    </StackPanel>
+                    
+                </dialogHostAvalonia:DialogHost.DialogContent>
+            </dialogHostAvalonia:DialogHost>
             
+            <!-- Fila 0 del Grid de la columna 2 -->
+            <StackPanel Grid.Row="0">
+                <Button Theme="{StaticResource MaterialOutlineButton}" 
+                        Content="SUSCRIBETE" 
+                        CornerRadius="16" 
+                        Width="250"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1">
+                
+            </StackPanel>
+            
+            <Grid Grid.Row="2">
+                <controls:FloatingButton HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Command="{Binding aparecerCommand}"
+                                         Name="aparecer">
+                    <controls:FloatingButton.Content>
+                        <avalonia:MaterialIcon Kind="HelpCircle" 
+                                               Width="25" Height="25"/>
+                    </controls:FloatingButton.Content>
+                </controls:FloatingButton>
+            </Grid>
+           
         </Grid>
 
     </Grid>
+    
 </UserControl>

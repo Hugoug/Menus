@@ -17,7 +17,10 @@
             <TabControl Name="tabControl" SelectedIndex="{Binding PageIndex}">
                 <TabControl.ContentTemplate>
                     <DataTemplate x:DataType="System:Object">
-                            <TransitioningContentControl Content="{Binding}" IsTransitionReversed="True">
+                            <TransitioningContentControl Content="{Binding}" 
+                                                         DataContext="{Binding ElementName=tabControl}"
+                                                         
+                                                         IsTransitionReversed="True">
                                 <TransitioningContentControl.PageTransition>
                                     <!-- <CrossFade Duration="0:0:0.5"/> -->
                                     <!-- <PageSlide Duration="0:0:0.5"/> -->

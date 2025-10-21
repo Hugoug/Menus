@@ -9,6 +9,7 @@ public partial class ShopViewModel:ViewModelBase
     private NavigationService _navigationService;
     
     [ObservableProperty] private int pageIndex = 0;
+    [ObservableProperty] private bool isReverse = false;
 
     public ShopViewModel()
     {

@@ -8,6 +8,7 @@ public partial class HomeViewModel:ViewModelBase
 {
     private NavigationService _navigationService;
     
+    //DECLARAR EN MINUSCULA Y USAR EN MAYUSCULA LOS OBSERVABLE
     [ObservableProperty] private bool dialogo;
     
     public HomeViewModel(NavigationService navigationService)
@@ -23,7 +24,7 @@ public partial class HomeViewModel:ViewModelBase
     [RelayCommand]
     public void aparecer()
     {
-        dialogo = !dialogo;
+        Dialogo = !Dialogo;
         
     }
     

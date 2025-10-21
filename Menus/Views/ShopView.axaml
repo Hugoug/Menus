@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Menus.ViewModels"
+             xmlns:System="clr-namespace:System;assembly=System.Runtime"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
              Width="1280" Height="720" 
              x:Class="Menus.Views.ShopView"
@@ -12,13 +13,73 @@
         <vm:ShopViewModel/>
     </Design.DataContext>
     
-    <Grid Background="red">
-        <StackPanel>
-            <Button Content="IR A INICIO" 
-                    Command="{Binding NavigateInicioCommand}"/> 
-            
-            <Button Content="IR A CARRITO" 
-                    Command="{Binding NavigateCarritoCommand}"/> 
-        </StackPanel>
+    <Grid>
+            <TabControl Name="tabControl" SelectedIndex="{Binding PageIndex}">
+                <TabControl.ContentTemplate>
+                    <DataTemplate x:DataType="System:Object">
+                            <TransitioningContentControl Content="{Binding}">
+                                <TransitioningContentControl.PageTransition>
+                                    <!-- <CrossFade Duration="0:0:0.5"/> -->
+                                    <!-- <PageSlide Duration="0:0:0.5"/> -->
+                                    <Rotate3DTransition Duration="0:0:0.5"/>
+                                </TransitioningContentControl.PageTransition>
+                            </TransitioningContentControl>
+                    </DataTemplate>    
+                </TabControl.ContentTemplate>
+                
+                <TabControl.Items>
+                    <TabItem Header="INICIO">
+                        <StackPanel Background="MediumPurple" DataContext="{Binding ElementName=tabControl, Path=DataContext}">
+                            <TextBlock Classes="Centered" Text="Page 1" /> 
+                            <Button Content="IR A INICIO" 
+                                    Command="{Binding NavigateInicioCommand}"/> 
+                            
+                            <Button Content="IR A ATRAS" 
+                                    Margin="10"
+                                    Width="200"
+                                    Command="{Binding irAConfigCommand}"/>
+                            
+                            <Button Content="IR A USUARIOS" 
+                                    Margin="10"
+                                    Width="200"
+                                    Command="{Binding irAUsuariosCommand}"/>
+                            
+                        </StackPanel>
+                    </TabItem>
+                    
+                    <TabItem Header="USUARIOS">
+                        <StackPanel Background="SeaGreen" DataContext="{Binding ElementName=tabControl, Path=DataContext}">
+                            <TextBlock Classes="Centered" Text="Page 2" />   
+                            
+                            <Button Content="IR A ATRAS" 
+                                    Margin="10"
+                                    Width="200"
+                                    Command="{Binding irAInicioCommand}"/>
+                            
+                            <Button Content="IR A CONFIGURACIÓN" 
+                                    Margin="10"
+                                    Width="200"
+                                    Command="{Binding irAConfigCommand}"/>
+                        </StackPanel>
+                    </TabItem>
+                    
+                    <TabItem Header="CONFIGURACIÓN">
+                        <StackPanel Background="CadetBlue" DataContext="{Binding ElementName=tabControl, Path=DataContext}">
+                            <TextBlock Classes="Centered" Text="Page 3" />   
+                            
+                            <Button Content="IR A ATRAS" 
+                                    Margin="10"
+                                    Width="200"
+                                    Command="{Binding irAUsuariosCommand}"/>
+                            
+                            <Button Content="IR A INICIO" 
+                                    Margin="10"
+                                    Width="200"
+                                    Command="{Binding irAInicioCommand}"/>
+                        </StackPanel>
+                    </TabItem>
+                    
+                </TabControl.Items>
+            </TabControl>
     </Grid>
 </UserControl>

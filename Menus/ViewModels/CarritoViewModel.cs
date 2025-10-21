@@ -6,6 +6,11 @@ namespace Menus.ViewModels;
 public partial class CarritoViewModel:ViewModelBase
 {
     private NavigationService _navigationService;
+
+    public CarritoViewModel()
+    {
+        
+    }
     
     public CarritoViewModel(NavigationService navigationService)
     {

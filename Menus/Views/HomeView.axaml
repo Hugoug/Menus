@@ -29,16 +29,16 @@
         
         <dialogHostAvalonia:DialogHost ZIndex="1" 
             IsOpen="True"
-            Background="Transparent" Grid.RowSpan="3"
-            Height="580" Margin="20">
+            Background="Transparent" Grid.ColumnSpan="3"
+            Height="720" Margin="0">
                 
             <dialogHostAvalonia:DialogHost.DialogContent>
-                <Grid RowDefinitions="*,*,*" Width="320">
+                <Grid RowDefinitions="*,*,*" Width="400" Height="200">
                     <Grid.Background>
-                        Black
+                        <SolidColorBrush Opacity="0.90" Color="Black"/>
                     </Grid.Background>
                     <StackPanel HorizontalAlignment="Center" 
-                                Width="320"
+                                Width="200"
                                 Orientation="Horizontal"
                                 Margin="10">
                         
@@ -47,6 +47,7 @@
                                    HorizontalAlignment="Center"
                                    Foreground="White"
                                    FontSize="16"/>
+                        
                     </StackPanel>
                     
                     <StackPanel >

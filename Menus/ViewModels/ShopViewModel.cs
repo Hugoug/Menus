@@ -34,39 +34,40 @@ public partial class ShopViewModel:ViewModelBase
     [RelayCommand]
     public void irAtras()
     {
+        // Si estamos en 0, vamos al final (2).
         if (PageIndex == 0)
         {
             PageIndex = 2;
-        }
-        
-        if (PageIndex == 1)
-        {
-            PageIndex = 0;
-        }
-        
-        if (PageIndex == 2)
+        } 
+        // Si estamos en 2, vamos a 1.
+        else if (PageIndex == 2)
         {
             PageIndex = 1;
         }
-        
+        // Si estamos en 1, vamos a 0.
+        else if (PageIndex == 1) 
+        {
+            PageIndex = 0;
+        }
     }
-    
+
     [RelayCommand]
     public void irAdelante()
     {
-        if (PageIndex == 0)
-        {
-            PageIndex = 1;
-        }
-        
-        if (PageIndex == 1)
-        {
-            PageIndex = 2;
-        }
-        
+        // Si estamos en 2, vamos al inicio (0).
         if (PageIndex == 2)
         {
             PageIndex = 0;
+        }
+        // Si estamos en 1, vamos a 2.
+        else if (PageIndex == 1)
+        {
+            PageIndex = 2;
+        }
+        // Si estamos en 0, vamos a 1.
+        else if (PageIndex == 0) 
+        {
+            PageIndex = 1;
         }
     }
     
@@ -86,31 +87,52 @@ public partial class ShopViewModel:ViewModelBase
 
     private void LoadLanguageList(){
         
-        var uri = new Uri("avares://Menus/Assets/Languages/Python.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "Python" });
+        // var uri = new Uri("avares://Menus/Assets/Languages/Python.png");
+        // LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "Python" });
 
-        uri = new Uri("avares://Menus/Assets/Languages/Java.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "Java" });
+        // uri = new Uri("avares://Menus/Assets/Languages/Java.png");
+        // LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "Java" });
         
-        uri = new Uri("avares://Menus/Assets/Languages/JavaScript.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "JavaScript" });
-        
-        uri = new Uri("avares://Menus/Assets/Languages/SQL.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "SQL" });
-        
-        uri = new Uri("avares://Menus/Assets/Languages/C.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "C" });
-        
-        uri = new Uri("avares://Menus/Assets/Languages/C++.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "C++" });
-        
-        uri = new Uri("avares://Menus/Assets/Languages/C#.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "C#" });
-        
-        uri = new Uri("avares://Menus/Assets/Languages/Cobol.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "Cobol" });
-        
-        uri = new Uri("avares://Menus/Assets/Languages/Kotlin.png");
-        LanguageList.Add(new LanguageModel() { ImagePath = new Bitmap(AssetLoader.Open(uri)), Name = "Kotlin" });
+        string[] nombresLenguage = new string[]
+        {
+            "Python", "Java", "JavaScript", "SQL", "C", "C++", "C#", "Cobol", "Kotlin"
+        };
+
+        foreach (var name in nombresLenguage)
+        {
+            string nombreArchivo = $"{name}.png"; 
+            
+            var uri = new Uri($"avares://Menus/Assets/Languages/{nombreArchivo}");
+            
+            LanguageList.Add(new LanguageModel() {
+                // Usamos el AssetLoader para abrir y crear el Bitmap
+                ImagePath = new Bitmap(AssetLoader.Open(uri)),
+                Name = name 
+            });
+        }
+
     }
+    
+    private void LoadEntornoList(){
+        
+        string[] nombresEntorno = new string[]
+        {
+            "Python", "Java", "JavaScript", "SQL", "C", "C++", "C#", "Cobol", "Kotlin"
+        };
+
+        foreach (var name in nombresEntorno)
+        {
+            string nombreArchivo = $"{name}.png"; 
+            
+            var uri = new Uri($"avares://Menus/Assets/Languages/{nombreArchivo}");
+            
+            LanguageList.Add(new LanguageModel() {
+                // Usamos el AssetLoader para abrir y crear el Bitmap
+                ImagePath = new Bitmap(AssetLoader.Open(uri)),
+                Name = name 
+            });
+        }
+
+    }
+
 }

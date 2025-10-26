@@ -4,39 +4,49 @@ using Menus.Services;
 
 namespace Menus.ViewModels;
 
-public partial class HomeViewModel:ViewModelBase
+public partial class HomeViewModel : ViewModelBase
 {
     private NavigationService _navigationService;
-    
-    //DECLARAR EN MINUSCULA Y USAR EN MAYUSCULA LOS OBSERVABLE
+    // los observables se declaran en minusculas y se usan en mayusculas
+    // Controla el diálogo de "Atención" (Suscripción)
     [ObservableProperty] private bool dialogo;
     
+    // Controla el diálogo de "Ayuda" (Flotante)
+    [ObservableProperty] private bool dialogoAyuda;
+
+
+    public HomeViewModel()
+    {
+    }
+
     public HomeViewModel(NavigationService navigationService)
     {
         _navigationService = navigationService;
     }
 
-    public HomeViewModel()
-    {
-        
-    }
-
+    // Controla el diálogo de "Atención"
     [RelayCommand]
-    public void aparecer()
+    public void aparecerAtencion()
     {
         Dialogo = !Dialogo;
         
+        // Aseguramos que el otro diálogo esté cerrado si este se abre
+        if (Dialogo)
+        {
+            DialogoAyuda = false;
+        }
     }
     
+    // Controla el diálogo de "Ayuda"
     [RelayCommand]
-    public void NavigateTienda()
+    public void aparecerAyuda()
     {
-        _navigationService.NavigateTo("tienda");
-    }
-    
-    [RelayCommand]
-    public void NavigateCarrito()
-    {
-        _navigationService.NavigateTo("carrito");
+        DialogoAyuda = !DialogoAyuda;
+        
+        // Aseguramos que el otro diálogo esté cerrado si este se abre
+        if (DialogoAyuda)
+        {
+            Dialogo = false;
+        }
     }
 }

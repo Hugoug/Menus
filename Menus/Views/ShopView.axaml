@@ -33,7 +33,6 @@
                 <TabControl.Items>
                     <TabItem Header="INICIO">
                         <StackPanel Background="MediumPurple" DataContext="{Binding ElementName=tabControl, Path=DataContext}">
-                            <TextBlock Classes="Centered" Text="Page 1" /> 
                             
                             <Button Content="ANTERIOR" 
                                     Margin="10"
@@ -75,25 +74,55 @@
                     </TabItem>
                     
                     <TabItem Header="USUARIOS">
-                        <StackPanel Background="SeaGreen">
-                            <TextBlock Classes="Centered" Text="Page 2" />   
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding ElementName=tabControl, Path=SelectedIndex}"/> 
+                        <StackPanel Background="SeaGreen" 
+                                    DataContext="{Binding ElementName=tabControl, 
+                                    Path=DataContext}">
                             
+                            <TextBlock HorizontalAlignment="Center" 
+                                       Text="{Binding ElementName=tabControl, 
+                                       Path=SelectedIndex}"/> 
+        
                             <Button Content="ANTERIOR" 
                                     Margin="10"
                                     Width="200"
-                                    Command="{Binding ElementName=tabControl, Path=DataContext.irAtrasCommand}"/>
+                                    Command="{Binding irAtrasCommand}"/> 
                             
                             <Button Content="SIGUIENTE" 
                                     Margin="10"
                                     Width="200"
                                     Command="{Binding irAdelanteCommand}"/>
+                            
+                                <!--LISTA DE ENTORNOS DE INTERES-->
+                            <ListBox ItemsSource="{Binding LanguageList}" 
+                                     HorizontalAlignment="Center"
+                                     SelectionMode="Multiple" 
+                                     Height="350" Width="500">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <controls:Card Width="150" Height="150"
+                                                       VerticalAlignment="Top">
+                                            <StackPanel Margin="0,4" Background="AliceBlue">
+                                                <Image Width="70" Height="70" Margin="10" 
+                                                       Source="{Binding ImagePath}"/>
+                                                <TextBlock Foreground="Black" 
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           Text="{Binding Name}" />
+                                            </StackPanel>
+                                        </controls:Card>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ListBox>
                         </StackPanel>
                     </TabItem>
                     
                     <TabItem Header="CONFIGURACIÓN">
                         <StackPanel Background="CadetBlue" DataContext="{Binding ElementName=tabControl, Path=DataContext}">
-                            <TextBlock Classes="Centered" Text="Page 3" />   
                             
                             <Button Content="ANTERIOR" 
                                     Margin="10"

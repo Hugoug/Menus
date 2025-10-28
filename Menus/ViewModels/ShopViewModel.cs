@@ -18,6 +18,7 @@ public partial class ShopViewModel:ViewModelBase
     //Propiedas observables
     [ObservableProperty] private int pageIndex = 0;
     [ObservableProperty] private bool isReverse = false;
+    [ObservableProperty] private bool isLanguageSelected;
     
     //Mensaje informativo para la seleccion de lenguajes y entornos
     [ObservableProperty] private string info  = string.Empty;
@@ -50,6 +51,14 @@ public partial class ShopViewModel:ViewModelBase
     [RelayCommand]
     public void SelectedLanguagesChanged()
     {
+        if (SelectedLanguages.Count == 0)
+        {
+            IsLanguageSelected = false;
+        }
+        else
+        {
+            IsLanguageSelected = true;
+        }
         if (SelectedLanguages.Count == 5)
         {
             SelectedLanguages.Remove(SelectedLanguages.Last());

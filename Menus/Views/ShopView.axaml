@@ -67,7 +67,7 @@
                                     <!-- <Style Selector="ListBoxItem:selected"> -->
                                     <!--     <Setter Property="Background" Value="Chartreuse"/> -->
                                     <!-- </Style> -->
-                                    
+                                
                                     <!--Card seleccionada-->
                                     <Style Selector="ListBoxItem:selected controls|Card">
                                         <Setter Property="Background" Value="Aquamarine"/>
@@ -79,7 +79,8 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                            <controls:Card Width="150" Height="150"
-                                                          VerticalAlignment="Top">
+                                                          VerticalAlignment="Top"
+                                                          Classes="MiTarjeta">
                                                <StackPanel Margin="0,4" Background="AliceBlue">
                                                    <Image Width="70" Height="70" Margin="10" 
                                                           Source="{Binding ImagePath}"/>
@@ -101,6 +102,8 @@
                             
                             <Button Content="SIGUIENTE" 
                                     Margin="10"
+                                    IsEnabled="{Binding IsLanguageSelected}"
+                                    Classes="MiBoton"
                                     Width="200"
                                     Command="{Binding irAdelanteCommand}"/>
                             
@@ -155,7 +158,8 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                            <controls:Card Width="150" Height="150"
-                                                          VerticalAlignment="Top">
+                                                          VerticalAlignment="Top"
+                                                          Classes="MiTarjeta">
                                                <StackPanel Margin="0,4" Background="AliceBlue">
                                                    <Image Width="70" Height="70" Margin="10" 
                                                           Source="{Binding ImagePath}"/>
@@ -172,6 +176,7 @@
                             
                             <Button Content="ANTERIOR" 
                                     Margin="15"
+                                    Classes="MiBoton2"
                                     Width="200"
                                     Command="{Binding irAtrasCommand}"/> 
                             
@@ -179,6 +184,8 @@
                                     Margin="10"
                                     Width="200"
                                     Command="{Binding irAdelanteCommand}"/>
+                            
+                            <HyperlinkButton Classes="MiBotonImagen"/>
                             
                         </StackPanel>
                     </TabItem>

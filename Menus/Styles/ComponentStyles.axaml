@@ -1,0 +1,19 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles">
+        
+        <Style Selector="controls|Card.MiTarjeta">
+                <Setter Property="RenderTransform">
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter>
+        </Style>
+        
+        <Style Selector="controls|Card.MiTarjeta:pointerover">
+                <Setter Property="RenderTransform">
+                        <TransformGroup>
+                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                <RotateTransform Angle="20"/>
+                        </TransformGroup>
+                </Setter>
+        </Style>
+</Styles>

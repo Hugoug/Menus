@@ -8,6 +8,12 @@
 
     <ItemGroup>
         <AvaloniaResource Include="Assets\**"/>
+        <AvaloniaXaml Remove="Styles\Styles.axaml" />
+        <AvaloniaResource Include="Styles\Styles.axaml" />
+        <AvaloniaXaml Remove="Styles\ButtonStyles.axaml" />
+        <AvaloniaResource Include="Styles\ButtonStyles.axaml" />
+        <AvaloniaXaml Remove="Styles\ComponentStyles.axaml" />
+        <AvaloniaResource Include="Styles\ComponentStyles.axaml" />
     </ItemGroup>
 
     <ItemGroup>

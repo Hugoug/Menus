@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Menus.Views;
 
-public partial class CarritoView : UserControl
+public partial class ListasView : UserControl
 {
-    public CarritoView()
+    public ListasView()
     {
         InitializeComponent();
     }

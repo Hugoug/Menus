@@ -47,7 +47,7 @@
                 <Setter Property="Background">
                         <Setter.Value>
                                 <ImageBrush Stretch="Fill"
-                                            Source="avares://Menus/Assets/kirby.png"/>
+                                            Source="avares://Menus/Assets/robot.png"/>
                         </Setter.Value>
                 </Setter>
                 <Setter Property="RenderTransform">
@@ -60,7 +60,7 @@
                 <Setter Property="RenderTransform">
                         <TransformGroup>
                                 <ScaleTransform ScaleX="1.2" ScaleY="1.1"/>
-                                <RotateTransform Angle="20"/>
+                                <RotateTransform Angle="-20"/>
                         </TransformGroup>
                 </Setter>
         </Style>
